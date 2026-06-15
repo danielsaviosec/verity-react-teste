@@ -1,0 +1,64 @@
+{
+  "name": "verity-react-teste",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n vite,api -c blue,magenta \"vite\" \"npm run mock\"",
+    "dev:docker": "concurrently -n vite,api -c blue,magenta \"vite --host 0.0.0.0\" \"npm run mock -- --host 0.0.0.0\"",
+    "vite": "vite",
+    "mock": "json-server --watch db.json --routes routes.json --port 3001",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "serve": "json-server db.json --routes routes.json --static dist --port 4000 --host 0.0.0.0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss,css}\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{ts,tsx,scss,css,json,md}": "prettier --write"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
+  },
+  "dependencies": {
+    "jspdf": "^3.0.1",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.54.2",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "concurrently": "^9.1.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
+    "json-server": "^0.17.4",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.18.1",
+    "vite": "^6.0.5",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "professions": [
+    { "id": "1", "label": "Programador" },
+    { "id": "2", "label": "Médico" },
+    { "id": "3", "label": "Advogado" },
+    { "id": "4", "label": "Professor" },
+    { "id": "5", "label": "Arquiteto" },
+    { "id": "6", "label": "Engenheiro" },
+    { "id": "7", "label": "Designer" }
+  ],
+  "ceps": [
+    {
+      "id": "60530320",
+      "address": "Rua 206",
+      "neighborhood": "Conjunto Ceará",
+      "city": "Fortaleza",
+      "state": "CE"
+    },
+    {
+      "id": "87654321",
+      "address": "Rua do Batman",
+      "neighborhood": "Bairro do Morcego",
+      "city": "Rio de Janeiro",
+      "state": "RJ"
+    },
+    {
+      "id": "12457890",
+      "address": "Avenida Famosa",
+      "neighborhood": "Centro",
+      "city": "São Paulo",
+      "state": "SP"
+    },
+    {
+      "id": "11223344",
+      "address": "Avenida da Igreja",
+      "neighborhood": "Centro Histórico",
+      "city": "Recife",
+      "state": "PE"
+    },
+    {
+      "id": "55667788",
+      "address": "Rua das Araucárias",
+      "neighborhood": "Centro",
+      "city": "Curitiba",
+      "state": "PR"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Linting/format em arquivos staged
+npx lint-staged
+
+# Testes com cobertura mínima de 80%
+npm run test:coverage
