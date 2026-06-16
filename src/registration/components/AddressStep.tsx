@@ -1,5 +1,5 @@
 import { Controller, type UseFormReturn } from 'react-hook-form';
-import { LoaderCircle, TriangleAlert } from 'lucide-react';
+import { LoaderCircle, MapPin, TriangleAlert } from 'lucide-react';
 import { Field } from './Field';
 import type { AddressForm } from '../forms';
 import { formatCep } from '../format';
@@ -15,8 +15,20 @@ export function AddressStep({ form, onLookup, looking, lookupError }: AddressSte
   const {
     control,
     register,
+    watch,
     formState: { errors },
   } = form;
+
+  const [address, neighborhood, city, state] = watch(['address', 'neighborhood', 'city', 'state']);
+
+  const mapQuery = [address, neighborhood, city, state]
+    .map((part) => part?.trim())
+    .filter(Boolean)
+    .join(', ');
+
+  const mapSrc = mapQuery
+    ? `https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`
+    : null;
 
   return (
     <form className="grid" noValidate>
@@ -86,6 +98,36 @@ export function AddressStep({ form, onLookup, looking, lookupError }: AddressSte
           {...register('state', { required: 'Informe o estado.' })}
         />
       </Field>
+
+      <div className="field--wide">
+        <span className="field__label">Localização no mapa</span>
+        {mapSrc ? (
+          <div className="map">
+            <iframe
+              className="map__frame"
+              title={`Mapa de ${mapQuery}`}
+              src={mapSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <a
+              className="map__link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MapPin size={16} />
+              Abrir no Google Maps
+            </a>
+          </div>
+        ) : (
+          <p className="notice notice--info map__empty">
+            <MapPin size={18} />
+            Preencha o endereço para visualizar o local no mapa.
+          </p>
+        )}
+      </div>
     </form>
   );
 }
