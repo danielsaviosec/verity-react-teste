@@ -5,10 +5,11 @@ Aplicação React 19 + TypeScript (Vite)
 ## Stack
 
 - React 19 + TypeScript + Vite 6
-- React Hook Form, Zustand, jsPDF, lucide-react
+- React Hook Form, Zustand, jsPDF, lucide-react, GoogleMaps
 - json-server (API mockada)
 - Vitest + Testing Library (testes unitários, cobertura mínima de 80%)
 - ESLint + Prettier, Husky + lint-staged
+- Cursor + Claude
 
 ## Como executar
 
